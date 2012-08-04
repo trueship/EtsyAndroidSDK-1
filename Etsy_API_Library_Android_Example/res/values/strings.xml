@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, EtsyAPILibraryAndroidExampleActivity!</string>
+    <string name="app_name">Etsy API Library Android Example</string>
+    <string name="search_listings_hint">Search handmade and vintage</string>
+    <string name="listing_image_content_description">Image for the listing.</string>
+
+</resources>

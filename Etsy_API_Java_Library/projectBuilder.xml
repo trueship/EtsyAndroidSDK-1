@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="EtsyAPILibrary.makejar" default="makejar" basedir=".">
+    <target name="makejar" description="Create a jar file for the library.">
+        <jar destfile="./bin/etsy_api_android_library.jar">
+         	<fileset dir="./bin/classes"></fileset>
+         </jar>
+    </target>
+</project>
