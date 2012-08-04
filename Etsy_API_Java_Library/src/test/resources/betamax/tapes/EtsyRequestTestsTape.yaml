@@ -1,0 +1,109 @@
+!tape
+name: EtsyRequestTestsTape
+interactions:
+- recorded: 2012-06-20T18:51:40.550Z
+  request:
+    method: POST
+    uri: http://openapi.etsy.com/v2/oauth/access_token?scope=listings_r+feedback_r
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_signature="bVgKGMF1zkHxO75tZo792athTto%3D", oauth_version="1.0", oauth_nonce="-515053042", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_token="c33579fd3430e360007d4bccf6bd8a", oauth_verifier="7023ce4f", oauth_timestamp="1340218299"
+      Connection: close
+      Content-Length: '0'
+      Content-Type: application/x-www-form-urlencoded
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Date: Wed, 20 Jun 2012 18:51:39 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: k2GChru9_r_HcqHhcvjm_4qJWS7O
+    body: !!binary |-
+      b2F1dGhfdG9rZW49ZWFhYjZkMTg3Y2E5Y2U0NDhhMTVhYWI3N2Y1Y2MxJm9hdXRoX3Rva2VuX3NlY3JldD02MTdmY2M4MTBh
+- recorded: 2012-06-20T18:51:43.015Z
+  request:
+    method: GET
+    uri: http://openapi.etsy.com/v2/users/joshhalickman
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_signature="%2BVlLHf3m3QOM9buZG%2FvHW9gLSkk%3D", oauth_version="1.0", oauth_nonce="-234437257", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_token="eaab6d187ca9ce448a15aab77f5cc1", oauth_timestamp="1340218302"
+      Connection: close
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+      Date: Wed, 20 Jun 2012 18:51:42 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: 89-hifxdrl93h9wPoCfz4km5nO-n
+    body: '{"count":1,"results":[{"user_id":15343253,"login_name":"joshhalickman","creation_tsz":1308677568,"referred_by_user_id":null,"feedback_info":{"count":48,"score":100}}],"params":{"user_id":"joshhalickman"},"type":"User","pagination":{}}'
+- recorded: 2012-06-20T18:51:44.012Z
+  request:
+    method: GET
+    uri: http://openapi.etsy.com/v2/listings/92439453
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_signature="ebHWsxaXXsLiUl9p5l0e0UlU5ws%3D", oauth_version="1.0", oauth_nonce="-781406103", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_token="eaab6d187ca9ce448a15aab77f5cc1", oauth_timestamp="1340218303"
+      Connection: close
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+      Date: Wed, 20 Jun 2012 18:51:43 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: xEwPbyShR2wzQr2nrFQcOMYN1Me4
+    body: '{"count":1,"results":[{"listing_id":92439453,"state":"active","user_id":5029420,"category_id":69170893,"title":"Etsy Stickers (Set of 5)","description":"Show your love for Etsy and all things handmade with these new Etsy stickers. Each orange sticker
+      measures 3&quot; in diameter and is printed on white all-weather sticker vinyl.\r\n\r\nStickers read &#39;Etsy.com, Valuing Craftsmanship, Keeping It Real&#39;.\r\n\r\nPost them on your car, laptop, bike, mailbox, local bulletin board, or anywhere you
+      can think of!\r\n\r\nYou can find more official Etsy merchandise here: www.etsy.com\/shop\/EtsyStore","creation_tsz":1339763983,"ending_tsz":1350273600,"original_creation_tsz":1328628502,"last_modified_tsz":1339763983,"price":"3.00","currency_code":"USD","quantity":16,"tags":["official
+      etsy","orange","etsy sticker","etsy","sticker","stickers","etsy stickers","orange stickers","macbook stickers","macbook sticker","heart stickers","round sticker","heart sticker"],"category_path":["Paper Goods","Sticker","Promotional"],"materials":["sticker"],"shop_section_id":null,"featured_rank":null,"state_tsz":1336427343,"hue":8,"saturation":9,"brightness":55,"is_black_and_white":false,"url":"http:\/\/www.etsy.com\/listing\/92439453\/etsy-stickers-set-of-5?utm_source=hacknyspring2012&utm_medium=api&utm_campaign=api","views":965,"num_favorers":53,"who_made":"collective","is_supply":"false","when_made":"2010_2012","recipient":null,"occasion":null,"style":["Traditional","Folk"]}],"params":{"listing_id":"92439453"},"type":"Listing","pagination":{}}'
+- recorded: 2012-06-20T19:14:07.348Z
+  request:
+    method: GET
+    uri: http://openapi.etsy.com/v2/listings/92439453/shipping/info
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_signature="8IqHImMGAshNKVHNHp85fue4%2FRY%3D", oauth_version="1.0", oauth_nonce="-691360568", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_token="eaab6d187ca9ce448a15aab77f5cc1", oauth_timestamp="1340219646"
+      Connection: close
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+      Date: Wed, 20 Jun 2012 19:14:06 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: 3RPExZpNWqQoZNIBAgtpNwRzq7kR
+    body: '{"count":31,"results":[{"shipping_info_id":855221076,"origin_country_id":209,"destination_country_id":79,"currency_code":"USD","primary_cost":"1.00","secondary_cost":"1.00","listing_id":92439453,"region_id":null,"origin_country_name":"United States","destination_country_name":"Canada"},{"shipping_info_id":855221077,"origin_country_id":209,"destination_country_id":209,"currency_code":"USD","primary_cost":"1.00","secondary_cost":"1.00","listing_id":92439453,"region_id":null,"origin_country_name":"United
+      States","destination_country_name":"United States"},{"shipping_info_id":855221078,"origin_country_id":209,"destination_country_id":91,"currency_code":"USD","primary_cost":"3.00","secondary_cost":"2.00","listing_id":92439453,"region_id":null,"origin_country_name":"United
+      States","destination_country_name":"Germany"},{"shipping_info_id":855221079,"origin_country_id":209,"destination_country_id":62,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Austria"},{"shipping_info_id":855221081,"origin_country_id":209,"destination_country_id":65,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Belgium"},{"shipping_info_id":855221082,"origin_country_id":209,"destination_country_id":69,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Bulgaria"},{"shipping_info_id":855221083,"origin_country_id":209,"destination_country_id":89,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Cyprus"},{"shipping_info_id":855221086,"origin_country_id":209,"destination_country_id":90,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Czech Republic"},{"shipping_info_id":855221087,"origin_country_id":209,"destination_country_id":93,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Denmark"},{"shipping_info_id":855221088,"origin_country_id":209,"destination_country_id":100,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Estonia"},{"shipping_info_id":855221089,"origin_country_id":209,"destination_country_id":102,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Finland"},{"shipping_info_id":855221090,"origin_country_id":209,"destination_country_id":103,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"France"},{"shipping_info_id":855221091,"origin_country_id":209,"destination_country_id":91,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Germany"},{"shipping_info_id":855221092,"origin_country_id":209,"destination_country_id":112,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Greece"},{"shipping_info_id":855221093,"origin_country_id":209,"destination_country_id":120,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Hungary"},{"shipping_info_id":855221095,"origin_country_id":209,"destination_country_id":123,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Ireland"},{"shipping_info_id":855221096,"origin_country_id":209,"destination_country_id":128,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Italy"},{"shipping_info_id":855221097,"origin_country_id":209,"destination_country_id":146,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Latvia"},{"shipping_info_id":855221099,"origin_country_id":209,"destination_country_id":144,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Lithuania"},{"shipping_info_id":855221101,"origin_country_id":209,"destination_country_id":145,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Luxembourg"},{"shipping_info_id":855221103,"origin_country_id":209,"destination_country_id":227,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Malta"},{"shipping_info_id":855221104,"origin_country_id":209,"destination_country_id":164,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Netherlands"},{"shipping_info_id":855221105,"origin_country_id":209,"destination_country_id":174,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Poland"},{"shipping_info_id":855221106,"origin_country_id":209,"destination_country_id":177,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Portugal"},{"shipping_info_id":855221107,"origin_country_id":209,"destination_country_id":180,"currency_code":"USD","primary_cost":"2.00","secondary_cost":"2.00","listing_id":92439453,"region_id":11,"origin_country_name":"United
+      States","destination_country_name":"Romania"}],"params":{"listing_id":"92439453","limit":25,"offset":0,"page":null},"type":"ShippingInfo","pagination":{"effective_limit":25,"effective_offset":0,"next_offset":25,"effective_page":1,"next_page":2}}'

@@ -1,0 +1,66 @@
+!tape
+name: EtsyAPILibraryTape
+interactions:
+- recorded: 2012-06-19T20:20:06.095Z
+  request:
+    method: POST
+    uri: http://openapi.etsy.com/v2/oauth/access_token?scope=listings_r+feedback_r
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_signature="4PNRWoKbKz%2FJ1D3SHgp1mpNCGDc%3D", oauth_version="1.0", oauth_nonce="313396070", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_token="f4a0cebde3873d6f6cd6c545793a96", oauth_verifier="6a133d23", oauth_timestamp="1340137205"
+      Connection: close
+      Content-Length: '0'
+      Content-Type: application/x-www-form-urlencoded
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Date: Tue, 19 Jun 2012 20:20:05 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: f8b2PaA6L3NYHmYrBElZbX5vA6f8
+    body: !!binary |-
+      b2F1dGhfdG9rZW49YmI0NTBhYmNmMWY4MGY2MTVhNzIyNGJiYTg0MmUzJm9hdXRoX3Rva2VuX3NlY3JldD1iMmQyZWE4MGU3
+- recorded: 2012-06-19T20:23:44.926Z
+  request:
+    method: POST
+    uri: http://openapi.etsy.com/v2/oauth/request_token?scope=listings_r+feedback_r
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_callback="etsyandroidexample%3A%2F%2Fcalvinhu.net%2F", oauth_signature="VQ4q8MW52UZ1z%2BYwgVIxwoHbdPY%3D", oauth_version="1.0", oauth_nonce="372293296", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_timestamp="1340137424"
+      Connection: close
+      Content-Length: '0'
+      Content-Type: application/x-www-form-urlencoded
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Date: Tue, 19 Jun 2012 20:23:44 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: B0NXAWVJ_QS2RzydvQaQgHaeUdiC
+    body: !!binary |-
+      bG9naW5fdXJsPWh0dHBzJTNBJTJGJTJGd3d3LmV0c3kuY29tJTJGb2F1dGglMkZzaWduaW4lM0ZvYXV0aF9jb25zdW1lcl9rZXklM0RrMzdreWRtNm9seTg2dzdlOG83bHN4NTIlMjZvYXV0aF90b2tlbiUzRGQxMGEwNWE5YWRjYjVlNzhlYTNiMmY2M2QyM2UwOCUyNnNlcnZpY2UlM0R2Ml9wcm9kJm9hdXRoX3Rva2VuPWQxMGEwNWE5YWRjYjVlNzhlYTNiMmY2M2QyM2UwOCZvYXV0aF90b2tlbl9zZWNyZXQ9MjRiNWEyMzRmMSZvYXV0aF9jYWxsYmFja19jb25maXJtZWQ9dHJ1ZSZvYXV0aF9jb25zdW1lcl9rZXk9azM3a3lkbTZvbHk4Nnc3ZThvN2xzeDUyJm9hdXRoX2NhbGxiYWNrPWV0c3lhbmRyb2lkZXhhbXBsZSUzQSUyRiUyRmNhbHZpbmh1Lm5ldCUyRg==
+- recorded: 2012-06-19T21:12:48.193Z
+  request:
+    method: GET
+    uri: http://openapi.etsy.com/v2/server/ping
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_signature="cfJ782omwr%2Fn2hZtqc%2BRch4QD0s%3D", oauth_version="1.0", oauth_nonce="2308863860", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="k37kydm6oly86w7e8o7lsx52", oauth_token="bb450abcf1f80f615a7224bba842e3", oauth_timestamp="1340140367"
+      Connection: close
+      Host: openapi.etsy.com
+      User-Agent: Java/1.6.0_31
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+      Date: Tue, 19 Jun 2012 21:12:47 GMT
+      Server: Apache
+      X-Cnection: close
+      X-Etsy-Request-Uuid: pAvXFA8FHqP-oqUjLA6pP9eV6w3J
+    body: '{"count":1,"results":["pong"],"params":null,"type":"String","pagination":{}}'
