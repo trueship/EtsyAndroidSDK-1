@@ -168,14 +168,22 @@ public class EtsyRequestManager{
 	 */
 	public EtsyResult runRequest(EtsyRequest etsyRequest){
 		EtsyResult result = new EtsyResult();
-		String url;
-		if(accessToken != null){
-			url = API_ENDPOINT + etsyRequest.getMethod();
+		StringBuilder url = new StringBuilder(API_ENDPOINT);
+		if(accessToken != null) {
+		    url.append(etsyRequest.getMethod());
+		} else{
+		    String method = etsyRequest.getMethod();
+		    // check to see what separator should be used when appending the api_key to the full url.
+		    String separator = "&";
+		    if (method.indexOf("?") == -1) {
+		        separator = "?";
+		    }
+		    url.append(method);
+		    url.append(separator);
+		    url.append("api_key=");
+		    url.append(this.apiKey);
 		}
-		else{
-			url = API_ENDPOINT + etsyRequest.getMethod() + "&api_key=" + this.apiKey;
-		}
-		OAuthRequest request = new OAuthRequest(convertToVerb(etsyRequest.getType()), url);
+		OAuthRequest request = new OAuthRequest(convertToVerb(etsyRequest.getType()), url.toString());
 		etsyService.signRequest(accessToken, request);
 		Response response = request.send();
 		result.parseResult(response);
