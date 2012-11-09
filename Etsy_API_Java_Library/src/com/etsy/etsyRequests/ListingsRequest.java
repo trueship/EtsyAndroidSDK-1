@@ -1,5 +1,10 @@
 package com.etsy.etsyRequests;
 
+import com.etsy.etsyModels.Listing;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class ListingsRequest extends EtsyRequest{
 
 	/**
@@ -134,12 +139,34 @@ public class ListingsRequest extends EtsyRequest{
 	 * Finds all active Listings associated with a Shop
 	 */
 	public static ListingsRequest findAllShopListingsActive(String shopId){
-		String methodUrl = "/shops/" + shopId + "/listings/active";
-		String methodType = "GET";
-		ListingsRequest er = new ListingsRequest(methodUrl, methodType);
-
-		return er;
+	    return findAllShopListingsActive(shopId, false);
 	}
+
+    /**
+     * Finds all active {@link Listing}s for a shop.
+     * 
+     * @param shopId unique identifier for the shop.
+     * @param includeImages boolean indicator which determines whether or not
+     *            the images corresponding to the shop's active listings are
+     *            returned in the response.
+     * @return a {@link ListingsRequest} which can be executed by an
+     *         EtsyRequestManager.
+     */
+    public static ListingsRequest findAllShopListingsActive(String shopId, boolean includeImages) {
+        // begin to build a regular active listings url ...
+        StringBuilder methodUrl = new StringBuilder("/shops/");
+        methodUrl.append(shopId);
+        methodUrl.append("/listings/active");
+        String methodType = "GET";
+        ListingsRequest er = new ListingsRequest(methodUrl.toString(), methodType);
+        // check to see whether the client needs images too.
+        if (includeImages) {
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("includes", "Images");
+            er.addParams(parameters);
+        }
+        return er;
+    }
 		/*
 	 * Finds all listings within a shop section
 	 */
