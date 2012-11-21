@@ -84,33 +84,42 @@ public class EtsyResult {
 		
 		try{
 			InputStream responseStream = response.getStream();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(responseStream));
-			String responseLine;
-			StringBuilder responseBuilder = new StringBuilder();
-			while((responseLine = bufferedReader.readLine()) != null){
-				responseBuilder.append(responseLine);
-			}
-			String responseString = responseBuilder.toString();
-			this.code = response.getCode();
-			
-			if(this.code == 200){
-				JSONObject data = new JSONObject(responseString);
-				String returnType = data.getString("type");
-				this.maxCount = data.optInt("count");
-				this.results = new ArrayList<BaseModel>();
-				
-				JSONArray results = data.getJSONArray("results");
-				for(int i=0; i < results.length(); i++){
-					BaseModel m = this.getObjectForType(returnType);
-					if(m != null){
-						m.parseData(results.getJSONObject(i));
-						this.results.add(m);
-					}
-				}
-				this.count = this.results.size();
-			}
-			else{
-				this.error = responseString;
+			// before proceeding, ensure that the connection has not returned null. This can happen from time to time
+			// whenever the connection is flaky or is dropped while reading the response.
+			if (responseStream != null) {
+	            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(responseStream));
+	            String responseLine;
+	            StringBuilder responseBuilder = new StringBuilder();
+	            while((responseLine = bufferedReader.readLine()) != null){
+	                responseBuilder.append(responseLine);
+	            }
+	            String responseString = responseBuilder.toString();
+	            this.code = response.getCode();
+	            
+	            if(this.code == 200){
+	                JSONObject data = new JSONObject(responseString);
+	                String returnType = data.getString("type");
+	                this.maxCount = data.optInt("count");
+	                this.results = new ArrayList<BaseModel>();
+	                
+	                JSONArray results = data.getJSONArray("results");
+	                for(int i=0; i < results.length(); i++){
+	                    BaseModel m = this.getObjectForType(returnType);
+	                    if(m != null){
+	                        m.parseData(results.getJSONObject(i));
+	                        this.results.add(m);
+	                    }
+	                }
+	                this.count = this.results.size();
+	            }
+	            else{
+	                this.error = responseString;
+	            }
+			} else {
+			    // can happen if the connection is dropped.
+			    this.code = response.getCode();
+			    this.count = 0;
+			    this.error = "";
 			}
 		}
 		catch (IOException e) {
