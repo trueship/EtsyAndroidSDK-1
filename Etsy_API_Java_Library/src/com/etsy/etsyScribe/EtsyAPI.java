@@ -16,7 +16,7 @@ public class EtsyAPI extends DefaultApi10a{
 	 */
 	@Override
 	public String getAccessTokenEndpoint(){
-		return "http://openapi.etsy.com/v2/oauth/access_token";
+		return "https://openapi.etsy.com/v2/oauth/access_token";
 	}
 	
 	/**
@@ -24,7 +24,7 @@ public class EtsyAPI extends DefaultApi10a{
 	 */
 	@Override
 	public String getRequestTokenEndpoint(){
-		return "http://openapi.etsy.com/v2/oauth/request_token";
+		return "https://openapi.etsy.com/v2/oauth/request_token";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ public class EtsyAPI extends DefaultApi10a{
 	 */
 	@Override
 	public String getAuthorizationUrl(Token requestToken){
-		return "http://www.etsy.com/oauth/signin?oauth_token=" + requestToken.getToken();
+		return "https://www.etsy.com/oauth/signin?oauth_token=" + requestToken.getToken();
 	}
 	
 	/**

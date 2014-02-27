@@ -19,7 +19,7 @@ import com.etsy.etsyScribe.EtsyAPI;
 public class EtsyRequestManager{
 	private String apiKey, apiSecret, callback, scope;
 	private final String TOKEN_NAME = "EtsyApiAccessToken";
-	private final String API_ENDPOINT = "http://openapi.etsy.com/v2";
+	private final String API_ENDPOINT = "https://openapi.etsy.com/v2";
 	
 	private OAuthService etsyService;
 	private Token requestToken;
