@@ -51,6 +51,7 @@ public class Receipt extends BaseModel {
 	private User seller;
 	private Transaction[] transactions;
 	private Listing[] listings;
+    private Shipment[] shipments;
 
 	
 	public int getReceiptId() {
@@ -207,6 +208,15 @@ public class Receipt extends BaseModel {
 		return listings;
 	}
 
+    public Shipment[] getShipments() {
+        return shipments;
+    }
+
+    public void setShipments(Shipment[] shipments) {
+        this.shipments = shipments;
+    }
+
+
 	@Override
 	public void parseData(JSONObject data) throws JSONException {
 		this.receipt_id = data.optInt("receipt_id");
@@ -227,9 +237,9 @@ public class Receipt extends BaseModel {
 		this.message_from_seller = data.optString("message_from_seller");
 		this.message_from_buyer = data.optString("message_from_buyer");
 		this.was_paid = data.optBoolean("was_paid");
-		this.total_tax_cost = data.optLong("total_tax_cost");
-		this.total_price = data.optLong("total_price");
-		this.total_shipping_cost = data.optLong("total_shipping_cost");
+		this.total_tax_cost = (float) data.optDouble("total_tax_cost", 0.0f);
+		this.total_price = (float) data.optDouble("total_price", 0.0f);
+		this.total_shipping_cost = (float) data.optDouble("total_shipping_cost", 0.0f);
 		this.currency_code = data.optString("currency_code");
 		this.message_from_payment = data.optString("message_from_payment");
 		this.was_shipped = data.optBoolean("was_shipped");
@@ -284,6 +294,14 @@ public class Receipt extends BaseModel {
 				this.listings[i].parseData(listingsArray.getJSONObject(i));
 			}
 		}
+        JSONArray shipmentArray = data.optJSONArray("shipments");
+        if(shipmentArray != null) {
+            this.shipments = new Shipment[shipmentArray.length()];
+            for(int i=0;i<shipmentArray.length();i++) {
+                this.shipments[i] = new Shipment();
+                this.shipments[i].parseData(shipmentArray.getJSONObject(i));
+            }
+        }
 	}
 	
 	

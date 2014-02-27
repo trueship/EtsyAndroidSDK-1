@@ -37,6 +37,7 @@ public class Transaction extends BaseModel {
 	private Listing listing;
 	private User seller;
 	private Receipt receipt;
+    private SelectedVariations[] variations;
 
 	
 	public int getTransactionId() {
@@ -139,7 +140,15 @@ public class Transaction extends BaseModel {
 		return receipt;
 	}
 
-	@Override
+    public SelectedVariations[] getVariations() {
+        return variations;
+    }
+
+    public void setVariations(SelectedVariations[] variations) {
+        this.variations = variations;
+    }
+
+    @Override
 	public void parseData(JSONObject data) throws JSONException {
 		this.transaction_id = data.optInt("transaction_id");
 		this.title = data.optString("title");
@@ -188,6 +197,14 @@ public class Transaction extends BaseModel {
 			this.receipt = new Receipt();
 			this.receipt.parseData(receiptJSONObject);
 		}
+        JSONArray variationsArray = data.optJSONArray("variations");
+        if(variationsArray != null) {
+            this.variations = new SelectedVariations[variationsArray.length()];
+            for(int i=0;i<variationsArray.length();i++) {
+                this.variations[i] = new SelectedVariations();
+                this.variations[i].parseData(variationsArray.getJSONObject(i));
+            }
+        }
 	}
 	
 	
