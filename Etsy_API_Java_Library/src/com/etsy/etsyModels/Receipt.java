@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.etsy.etsyModels.Shipment;
+
 public class Receipt extends BaseModel {
 
 	/**
