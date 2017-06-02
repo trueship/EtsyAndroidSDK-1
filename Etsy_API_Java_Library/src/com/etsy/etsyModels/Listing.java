@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class Listing extends BaseModel {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 5348433468850149081L;
 	private int listing_id;
@@ -52,131 +52,134 @@ public class Listing extends BaseModel {
 	private PaymentTemplate[] paymentInfo;
 	private ListingTranslation[] translations;
 
-	
+	private int processingMin;
+	private int processingMax;
+
+
 	public int getListingId() {
 		return listing_id;
 	}
-	
+
 	public String getState() {
 		return state;
 	}
-	
+
 	public int getUserId() {
 		return user_id;
 	}
-	
+
 	public int getCategoryId() {
 		return category_id;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public float getCreationTsz() {
 		return creation_tsz;
 	}
-	
+
 	public float getEndingTsz() {
 		return ending_tsz;
 	}
-	
+
 	public float getOriginalCreationTsz() {
 		return original_creation_tsz;
 	}
-	
+
 	public float getLastModifiedTsz() {
 		return last_modified_tsz;
 	}
-	
+
 	public String getPrice() {
 		return price;
 	}
-	
+
 	public String getCurrencyCode() {
 		return currency_code;
 	}
-	
+
 	public int getQuantity() {
 		return quantity;
 	}
-	
+
 	public JSONArray getTags() {
 		return tags;
 	}
-	
+
 	public JSONArray getCategoryPath() {
 		return category_path;
 	}
-	
+
 	public JSONArray getMaterials() {
 		return materials;
 	}
-	
+
 	public int getShopSectionId() {
 		return shop_section_id;
 	}
-	
+
 	public int getFeaturedRank() {
 		return featured_rank;
 	}
-	
+
 	public float getStateTsz() {
 		return state_tsz;
 	}
-	
+
 	public int getHue() {
 		return hue;
 	}
-	
+
 	public int getSaturation() {
 		return saturation;
 	}
-	
+
 	public int getBrightness() {
 		return brightness;
 	}
-	
+
 	public boolean getIsBlackAndWhite() {
 		return is_black_and_white;
 	}
-	
+
 	public String getUrl() {
 		return url;
 	}
-	
+
 	public int getViews() {
 		return views;
 	}
-	
+
 	public int getNumFavorers() {
 		return num_favorers;
 	}
-	
+
 	public String getWhoMade() {
 		return who_made;
 	}
-	
+
 	public boolean getIsSupply() {
 		return is_supply;
 	}
-	
+
 	public String getWhenMade() {
 		return when_made;
 	}
-	
+
 	public String getRecipient() {
 		return recipient;
 	}
-	
+
 	public String getOccasion() {
 		return occasion;
 	}
-	
+
 	public JSONArray getStyle() {
 		return style;
 	}
@@ -204,6 +207,14 @@ public class Listing extends BaseModel {
 	}
 	public ListingTranslation[] getTranslations() {
 		return translations;
+	}
+
+	public int getProcessingMin() {
+	    return processingMin;
+	}
+
+	public int getProcessingMax() {
+	    return processingMax;
 	}
 
 	@Override
@@ -240,6 +251,8 @@ public class Listing extends BaseModel {
 		this.recipient = data.optString("recipient");
 		this.occasion = data.optString("occasion");
 		this.style = data.optJSONArray("style");
+		this.processingMin = data.optInt("processing_min");
+		this.processingMax = data.optInt("processing_max");
 
 		JSONObject userJSONObject = data.optJSONObject("User");
 		if(userJSONObject != null){
@@ -294,6 +307,6 @@ public class Listing extends BaseModel {
 			}
 		}
 	}
-	
-	
+
+
 }
