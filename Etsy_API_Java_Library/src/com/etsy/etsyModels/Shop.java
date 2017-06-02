@@ -47,6 +47,7 @@ public class Shop extends BaseModel {
 	private String image_url_760x100;
 	private int num_favorers;
 	private JSONArray languages;
+	private boolean use_new_inventory_endpoints;
 
 	private User user;
 	private ShopSection[] sections;
@@ -223,6 +224,10 @@ public class Shop extends BaseModel {
 		return translations;
 	}
 
+	public boolean isUseNewInventoryEndpoints() {
+		return use_new_inventory_endpoints;
+	}
+
 	@Override
 	public void parseData(JSONObject data) throws JSONException {
 		this.shop_id = data.optInt("shop_id");
@@ -262,6 +267,7 @@ public class Shop extends BaseModel {
 		this.image_url_760x100 = data.optString("image_url_760x100");
 		this.num_favorers = data.optInt("num_favorers");
 		this.languages = data.optJSONArray("languages");
+		this.use_new_inventory_endpoints = data.optBoolean("use_new_inventory_endpoints", true);
 
 		JSONObject userJSONObject = data.optJSONObject("User");
 		if(userJSONObject != null){
