@@ -10,9 +10,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.scribe.model.Token;
 
-import betamax.Betamax;
-import betamax.Recorder;
-
 import com.etsy.etsyCore.BaseTokenStorage;
 import com.etsy.etsyCore.EtsyRequestManager;
 import com.etsy.etsyCore.EtsyResult;
@@ -20,6 +17,8 @@ import com.etsy.etsyCore.MapStorage;
 import com.etsy.etsyCore.PermissionScope;
 import com.etsy.etsyRequests.EtsyRequest;
 import com.etsy.etsyRequests.UsersRequest;
+import software.betamax.junit.Betamax;
+import software.betamax.junit.RecorderRule;
 
 import static org.junit.Assert.*;
 
@@ -37,7 +36,7 @@ public class EtsyRequestManagerTest{
     @Before
 	public void setup(){
 		requestManager = new EtsyRequestManager(apiKey, apiSecret, callback, scope);
-		
+
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpRoutePlanner routePlanner = new ProxySelectorRoutePlanner(
 		    client.getConnectionManager().getSchemeRegistry(),
@@ -47,7 +46,7 @@ public class EtsyRequestManagerTest{
 	}
 
 
-    @Rule public Recorder recorder = new Recorder();
+    @Rule public RecorderRule recorder = new RecorderRule();
     
     @Betamax(tape="EtsyAPILibraryTape")
     @Test

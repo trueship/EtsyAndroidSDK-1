@@ -16,6 +16,7 @@ public class User extends BaseModel {
 	private float creation_tsz;
 	private int referred_by_user_id;
 	private FeedbackInfo feedback_info;
+	private boolean use_new_inventory_endpoints;
 
 	private Shop[] shops;
 	private UserProfile profile;
@@ -46,9 +47,13 @@ public class User extends BaseModel {
 	public int getReferredByUserId() {
 		return referred_by_user_id;
 	}
-	
+
 	public FeedbackInfo getFeedbackInfo() {
 		return feedback_info;
+	}
+
+	public boolean isUseNewInventoryEndpoints() {
+		return use_new_inventory_endpoints;
 	}
 
 	public Shop[] getShops() {
@@ -86,6 +91,7 @@ public class User extends BaseModel {
 FeedbackInfo tmp_feedback_info = new FeedbackInfo();
 		tmp_feedback_info.parseData(data.optJSONObject("feedback_info"));
 		this.feedback_info = tmp_feedback_info;
+		this.use_new_inventory_endpoints = data.optBoolean("use_new_inventory_endpoints", true);
 
 		JSONArray shopsArray = data.optJSONArray("Shops");
 		if (shopsArray != null){

@@ -1,0 +1,68 @@
+!tape
+name: NewInventoryAPITape
+interactions:
+- recorded: 2017-06-02T21:08:40.001Z
+  request:
+    method: GET
+    uri: https://openapi.etsy.com/v2/users/trueship
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_nonce="1727848967", oauth_signature="r557yOVHZ%2FYMSXnwuKxJRW9tsnw%3D", oauth_token="046bdcd23ff69d0dfa519753b8f252", oauth_consumer_key="u43lre4wyxr0ql0jojx4fz1a", oauth_timestamp="1496437718", oauth_signature_method="HMAC-SHA1", oauth_version="1.0"
+      Connection: close
+      Content-Length: '0'
+      Host: openapi.etsy.com
+      User-Agent: Java/1.8.0_65
+  response:
+    status: 200
+    headers:
+      Accept-Ranges: bytes
+      Age: '0'
+      Cache-Control: private
+      Connection: close
+      Content-Length: '307'
+      Content-Type: application/json
+      Date: Fri, 02 Jun 2017 21:08:39 GMT
+      Server: Apache
+      Set-Cookie: uaid=uaid%3DFZkdxCj6iBL2tAdhDWBpeWTYvm-F%26_now%3D1496437719%26_slt%3DTXaJ6BJ8%26_kid%3D1%26_ver%3D1%26_mac%3DcJIr0ye1dHaGAmhgde54mvNXL_R7GYjI0omtNcI5f6E.; expires=Tue, 03-Jul-2018 13:26:59 GMT; Max-Age=34186700; path=/; domain=.etsy.com; secure; HttpOnly, user_prefs=sbMtTBwy0PGP5MldybIHJvRLEh5jZACCSMPL12F0dF5pTo4OyUQsAwA.; expires=Sat, 02-Jun-2018 21:08:39 GMT; Max-Age=31536000; path=/; domain=.etsy.com
+      Vary: Accept-Encoding
+      X-Cache: MISS
+      X-Cache-Hits: '0'
+      X-Etsy-Request-Uuid: MMMNzRQPvBfH49O9OZQp8yAguixm
+      X-RateLimit-Limit: '10000'
+      X-RateLimit-Remaining: '9997'
+      X-Served-By: cache-hhn1525-HHN
+      X-Timer: S1496437719.496545,VS0,VE445
+    body: '{"count":1,"results":[{"user_id":32918112,"login_name":"trueship","creation_tsz":1366908554,"user_pub_key":null,"referred_by_user_id":null,"feedback_info":{"count":0,"score":null},"awaiting_feedback_count":0,"use_new_inventory_endpoints":true}],"params":{"user_id":"trueship"},"type":"User","pagination":{}}'
+- recorded: 2017-06-02T21:08:40.001Z
+  request:
+    method: GET
+    uri: https://openapi.etsy.com/v2/users/trueship-optedout
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Authorization: OAuth oauth_nonce="1727848967", oauth_signature="r557yOVHZ%2FYMSXnwuKxJRW9tsnw%3D", oauth_token="046bdcd23ff69d0dfa519753b8f252", oauth_consumer_key="u43lre4wyxr0ql0jojx4fz1a", oauth_timestamp="1496437718", oauth_signature_method="HMAC-SHA1", oauth_version="1.0"
+      Connection: close
+      Content-Length: '0'
+      Host: openapi.etsy.com
+      User-Agent: Java/1.8.0_65
+  response:
+    status: 200
+    headers:
+      Accept-Ranges: bytes
+      Age: '0'
+      Cache-Control: private
+      Connection: close
+      Content-Length: '307'
+      Content-Type: application/json
+      Date: Fri, 02 Jun 2017 21:08:39 GMT
+      Server: Apache
+      Set-Cookie: uaid=uaid%3DFZkdxCj6iBL2tAdhDWBpeWTYvm-F%26_now%3D1496437719%26_slt%3DTXaJ6BJ8%26_kid%3D1%26_ver%3D1%26_mac%3DcJIr0ye1dHaGAmhgde54mvNXL_R7GYjI0omtNcI5f6E.; expires=Tue, 03-Jul-2018 13:26:59 GMT; Max-Age=34186700; path=/; domain=.etsy.com; secure; HttpOnly, user_prefs=sbMtTBwy0PGP5MldybIHJvRLEh5jZACCSMPL12F0dF5pTo4OyUQsAwA.; expires=Sat, 02-Jun-2018 21:08:39 GMT; Max-Age=31536000; path=/; domain=.etsy.com
+      Vary: Accept-Encoding
+      X-Cache: MISS
+      X-Cache-Hits: '0'
+      X-Etsy-Request-Uuid: MMMNzRQPvBfH49O9OZQp8yAguixm
+      X-RateLimit-Limit: '10000'
+      X-RateLimit-Remaining: '9997'
+      X-Served-By: cache-hhn1525-HHN
+      X-Timer: S1496437719.496545,VS0,VE445
+    body: '{"count":1,"results":[{"user_id":32918112,"login_name":"trueship-optedout","creation_tsz":1366908554,"user_pub_key":null,"referred_by_user_id":null,"feedback_info":{"count":0,"score":null},"awaiting_feedback_count":0,"use_new_inventory_endpoints":false}],"params":{"user_id":"trueship-optedout"},"type":"User","pagination":{}}'
+    
