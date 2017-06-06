@@ -31,7 +31,21 @@ public abstract class EtsyRequestTest {
     public static final String TEST_PROPERTIES_FILE = "test.properties";
     private static Logger log = Logger.getLogger(EtsyRequestTest.class.getName());
 
-    private final static PermissionScope predefinedScope = new PermissionScope(new String[]{PermissionScope.READ_LISTINGS, PermissionScope.READ_FEEDBACK});
+    private final static PermissionScope predefinedScope = new PermissionScope(new String[]{
+        PermissionScope.READ_LISTINGS,
+        PermissionScope.WRITE_LISTINGS,
+        PermissionScope.READ_FEEDBACK,
+        PermissionScope.READ_WRITE_SHOPS,
+        PermissionScope.READ_BILLING,
+        PermissionScope.READ_WRITE_CART,
+        PermissionScope.READ_TRANSACTIONS,
+        PermissionScope.WRITE_TRANSACTIONS,
+        PermissionScope.READ_SHIPPING_ADDRESSES,
+        PermissionScope.WRITE_SHIPPING_ADDRESSES,
+        PermissionScope.READ_PROFILE,
+        PermissionScope.WRITE_PROFILE,
+        PermissionScope.WRITE_TREASURY,
+    });
 
     private Properties properties;
     protected EtsyRequestManager requestManager;
