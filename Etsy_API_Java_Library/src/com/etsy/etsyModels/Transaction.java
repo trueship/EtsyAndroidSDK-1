@@ -158,14 +158,14 @@ public class Transaction extends BaseModel {
 		this.creation_tsz = data.optLong("creation_tsz");
 		this.paid_tsz = data.optLong("paid_tsz");
 		this.shipped_tsz = data.optLong("shipped_tsz");
-		this.price = data.optLong("price");
+		this.price = (float) data.optDouble("price", 0.0);
 		this.currency_code = data.optString("currency_code");
 		this.quantity = data.optInt("quantity");
 		this.tags = data.optJSONArray("tags");
 		this.materials = data.optJSONArray("materials");
 		this.image_listing_id = data.optInt("image_listing_id");
 		this.receipt_id = data.optInt("receipt_id");
-		this.shipping_cost = data.optLong("shipping_cost");
+		this.shipping_cost = (float) data.optDouble("shipping_cost", 0.0);
 		this.listing_id = data.optInt("listing_id");
 		this.seller_feedback_id = data.optInt("seller_feedback_id");
 		this.buyer_feedback_id = data.optInt("buyer_feedback_id");
