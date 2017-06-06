@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="etsy_api_src">
+    <output-path>$PROJECT_DIR$/classes/artifacts/etsy_api_src</output-path>
+    <root id="archive" name="etsy_api_src.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/src" />
+    </root>
+  </artifact>
+</component>
