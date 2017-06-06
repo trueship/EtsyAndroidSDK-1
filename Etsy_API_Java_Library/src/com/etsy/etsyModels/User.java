@@ -88,9 +88,14 @@ public class User extends BaseModel {
 		this.primary_email = data.optString("primary_email");
 		this.creation_tsz = data.optLong("creation_tsz");
 		this.referred_by_user_id = data.optInt("referred_by_user_id");
-FeedbackInfo tmp_feedback_info = new FeedbackInfo();
-		tmp_feedback_info.parseData(data.optJSONObject("feedback_info"));
-		this.feedback_info = tmp_feedback_info;
+
+		final JSONObject json_feedback_info = data.optJSONObject("feedback_info");
+		if (json_feedback_info != null) {
+			FeedbackInfo feedbackInfo = new FeedbackInfo();
+			feedbackInfo.parseData(json_feedback_info);
+			this.feedback_info = feedbackInfo;
+		}
+
 		this.use_new_inventory_endpoints = data.optBoolean("use_new_inventory_endpoints", true);
 
 		JSONArray shopsArray = data.optJSONArray("Shops");

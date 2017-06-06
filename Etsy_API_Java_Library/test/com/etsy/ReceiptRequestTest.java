@@ -69,4 +69,19 @@ public class ReceiptRequestTest extends EtsyRequestTest {
         assertEquals(3, transaction.getQuantity());
     }
 
+
+    @Betamax(tape="NewInventoryAPITape")
+    @Test
+    public void receiptWithUserWithoutFeedbackInfoShouldNotCrash() {
+        ReceiptsRequest request = ReceiptsRequest.getReceipt("1201560310");
+        Map<String, String> params = new HashMap<>();
+        params.put("includes", "Listings,Transactions,Transactions/Listing,Buyer/Addresses,Buyer/Country,Order,Coupon");
+        request.addParams(params);
+        EtsyResult result = requestManager.runRequest(request);
+
+        assertNull(result.getError());
+        assertEquals(200, result.getCode());
+        Receipt receipt = (Receipt) result.getResults().get(0);
+        assertNull("This buyer should have no feedback info attached", receipt.getBuyer().getFeedbackInfo());
+    }
 }
