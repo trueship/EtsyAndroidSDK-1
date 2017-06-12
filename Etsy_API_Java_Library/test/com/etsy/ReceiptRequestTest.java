@@ -44,8 +44,8 @@ public class ReceiptRequestTest extends EtsyRequestTest {
         Receipt receipt = (Receipt) result.getResults().get(0);
         assertEquals("Receipt should have 1 transaction", 1, receipt.getTransactions().length);
         Transaction transaction = receipt.getTransactions()[0];
-        assertEquals("Price should be 1 USD and represent single item price",1.0, transaction.getPrice(), 0.00001);
-        assertEquals("Currency should be USD","USD", transaction.getCurrencyCode());
+        assertEquals("Price should be 1 USD and represent single item price", 1.0, transaction.getPrice(), 0.00001);
+        assertEquals("Currency should be USD", "USD", transaction.getCurrencyCode());
         assertEquals(1, transaction.getQuantity());
     }
 
@@ -64,8 +64,8 @@ public class ReceiptRequestTest extends EtsyRequestTest {
         Receipt receipt = (Receipt) result.getResults().get(0);
         assertEquals("Receipt should have 1 transaction", 1, receipt.getTransactions().length);
         Transaction transaction = receipt.getTransactions()[0];
-        assertEquals("Price should be 1 USD and represent single item price",1.0, transaction.getPrice(), 0.00001);
-        assertEquals("Currency should be USD","USD", transaction.getCurrencyCode());
+        assertEquals("Price should be 1 USD and represent single item price", 1.0, transaction.getPrice(), 0.00001);
+        assertEquals("Currency should be USD", "USD", transaction.getCurrencyCode());
         assertEquals(3, transaction.getQuantity());
     }
 
