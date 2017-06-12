@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 /**
@@ -84,4 +85,22 @@ public class ReceiptRequestTest extends EtsyRequestTest {
         Receipt receipt = (Receipt) result.getResults().get(0);
         assertNull("This buyer should have no feedback info attached", receipt.getBuyer().getFeedbackInfo());
     }
+
+    @Betamax(tape="NewInventoryAPITape")
+    @Test
+    public void receiptWithUserWithFeedbackInfoShouldBeReadCorrectly() {
+        ReceiptsRequest request = ReceiptsRequest.getReceipt("98232671");
+        Map<String, String> params = new HashMap<>();
+        params.put("includes", "Listings,Transactions,Transactions/Listing,Buyer/Addresses,Buyer/Country,Order,Coupon");
+        request.addParams(params);
+        EtsyResult result = requestManager.runRequest(request);
+
+        assertNull(result.getError());
+        assertEquals(200, result.getCode());
+        Receipt receipt = (Receipt) result.getResults().get(0);
+        assertNotNull("This buyer should have a feedback info attached", receipt.getBuyer().getFeedbackInfo());
+        assertEquals(0, receipt.getBuyer().getFeedbackInfo().getCount());
+        assertEquals(0, receipt.getBuyer().getFeedbackInfo().getScore());
+    }
+
 }
