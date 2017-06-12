@@ -9,6 +9,7 @@ public class PermissionScope {
 	public static final String WRITE_LISTINGS = "listings_w";
 	public static final String DELETE_LISTINGS = "listings_d";
 	public static final String READ_TRANSACTIONS = "transactions_r";
+	public static final String WRITE_TRANSACTIONS = "transactions_w";
 	public static final String READ_BILLING = "billing_r";
 	public static final String READ_PROFILE = "profile_r";
 	public static final String WRITE_PROFILE = "profile_w";
